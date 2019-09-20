@@ -1,5 +1,6 @@
 #pragma once
-
+#include "CPartie.h"
+#include "CJoueur.h"
 
 // Boîte de dialogue CNom
 
@@ -18,6 +19,8 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // Prise en charge de DDX/DDV
+	CPartie*laPartie;
+	CJoueur*lesJoueurs[4];
 
 	DECLARE_MESSAGE_MAP()
 public:
@@ -25,6 +28,10 @@ public:
 	afx_msg void OnEnChangeEdit2();
 	afx_msg void OnEnChangeEdit3();
 	afx_msg void OnEnChangeEdit4();
+	afx_msg void OnBnClickedOk();
 	afx_msg void OnBnClickedCancel();
-	afx_msg void OnBnClickedButton1();
+	CString mJoueur1;
+	CString mJoueur2;
+	CString mJoueur3;
+	CString mJoueur4;
 };
