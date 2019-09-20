@@ -1,4 +1,5 @@
 #pragma once
+#include "CPartie.h"
 
 
 // Boîte de dialogue CDiagNewDonne
@@ -7,7 +8,7 @@ class CDiagNewDonne : public CDialogEx
 {
 	DECLARE_DYNAMIC(CDiagNewDonne)
 private:
-	CPartie* laPartie;
+	CPartie *laPartie;
 public:
 	CDiagNewDonne(CPartie *LaPartie, CWnd* pParent = NULL);   // constructeur standard
 	virtual ~CDiagNewDonne();

@@ -22,4 +22,5 @@ public:
 	void SetChelem(chelem t);
 	void SetContrat(CJoueur *lesJoueurs, contrat t, CJoueur *lesD[]);
 	void SetNbBouts(int nb_bouts);
+	void SetDonneur();
 };
