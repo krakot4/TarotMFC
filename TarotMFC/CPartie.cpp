@@ -52,6 +52,11 @@ void CPartie::SetContrat(CJoueur * lePreneur, contrat t, CJoueur * lesD[])
 	lesDonnes[nDonne - 1]->SetContratD(lePreneur, t, lesD);
 }
 
+void CPartie::SetNbBouts(int nb_bouts)
+{
+	bouts = nb_bouts;
+}
+
 #ifdef TESTU_SETPETITBOUT
 void main()
 {

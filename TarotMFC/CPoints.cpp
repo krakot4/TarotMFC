@@ -1,11 +1,9 @@
-// CPoints.cpp : fichier d'implémentation
-//
-
 #include "stdafx.h"
 #include "TarotMFC.h"
 #include "CPoints.h"
+#include "CDonne.h"
+#include "CPartie.h"
 #include "afxdialogex.h"
-
 
 // Boîte de dialogue CPoints
 
@@ -13,6 +11,7 @@ IMPLEMENT_DYNAMIC(CPoints, CDialogEx)
 
 CPoints::CPoints(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_TAROTMFC_POINTS, pParent)
+	, bouts(0)
 {
 
 }
@@ -24,6 +23,8 @@ CPoints::~CPoints()
 void CPoints::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_CBIndex(pDX, IDC_COMBO2, bouts);
+	DDV_MinMaxInt(pDX, bouts, 0, 3);
 }
 
 
@@ -42,8 +43,7 @@ END_MESSAGE_MAP()
 
 void CPoints::OnCbnSelchangeCombo2()
 {
-	
-	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+	UpdateData(true);
 }
 
 
@@ -82,7 +82,7 @@ void CPoints::OnEnChangeEdit3()
 
 void CPoints::OnBnClickedOk()
 {
-	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+	
 	CDialogEx::OnOK();
 }
 
@@ -91,4 +91,9 @@ void CPoints::OnBnClickedCancel()
 {
 	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
 	CDialogEx::OnCancel();
+}
+
+void CPoints::SetNbBouts(int nb_bouts)
+{
+	bouts = nb_bouts;
 }
