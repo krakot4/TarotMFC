@@ -1,4 +1,5 @@
 #pragma once
+#include "stdafx.h"
 #include "CDonne.h"
 #include "CJoueur.h"
 
@@ -20,5 +21,5 @@ public:
 	void SetPoignee(camp p, poignee type);
 	void SetChelem(chelem t);
 	void SetContrat(CJoueur *lesJoueurs, contrat t, CJoueur *lesD[]);
-	void SetDonneur();
+	void SetNbBouts(int nb_bouts);
 };
