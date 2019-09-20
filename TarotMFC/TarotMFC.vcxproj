@@ -192,7 +192,10 @@
     <ClInclude Include="CAnnonce.h" />
     <ClInclude Include="CDiagDonne.h" />
     <ClInclude Include="CDiagNewDonne.h" />
+    <ClInclude Include="CDonne.h" />
+    <ClInclude Include="CJoueur.h" />
     <ClInclude Include="CNom.h" />
+    <ClInclude Include="CPartie.h" />
     <ClInclude Include="CPoints.h" />
     <ClInclude Include="CScore.h" />
     <ClInclude Include="Resource.h" />
@@ -205,7 +208,10 @@
     <ClCompile Include="CAnnonce.cpp" />
     <ClCompile Include="CDiagDonne.cpp" />
     <ClCompile Include="CDiagNewDonne.cpp" />
+    <ClCompile Include="CDonne.cpp" />
+    <ClCompile Include="CJoueur.cpp" />
     <ClCompile Include="CNom.cpp" />
+    <ClCompile Include="CPartie.cpp" />
     <ClCompile Include="CPoints.cpp" />
     <ClCompile Include="CScore.cpp" />
     <ClCompile Include="main.cpp" />
