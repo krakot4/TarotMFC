@@ -9,49 +9,50 @@
 
 // Boîte de dialogue CDonne
 
-IMPLEMENT_DYNAMIC(CDonne, CDialogEx)
+IMPLEMENT_DYNAMIC(CDiagDonne, CDialogEx)
 
-CDonne::CDonne(CWnd* pParent /*=NULL*/)
+CDiagDonne::CDiagDonne(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_TAROTMFC_DONNE, pParent)
 {
 
 }
 
-CDonne::~CDonne()
+CDiagDonne::~CDiagDonne()
 {
+
 }
 
-void CDonne::DoDataExchange(CDataExchange* pDX)
+void CDiagDonne::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 }
 
 
-BEGIN_MESSAGE_MAP(CDonne, CDialogEx)
-	ON_CBN_SELCHANGE(IDC_COMBO1, &CDonne::OnCbnSelchangeCombo1)
-	ON_CBN_SELCHANGE(IDC_COMBO2, &CDonne::OnCbnSelchangeCombo2)
-	ON_EN_CHANGE(IDC_EDIT1, &CDonne::OnEnChangeEdit1)
-	ON_BN_CLICKED(IDOK, &CDonne::OnBnClickedOk)
-	ON_BN_CLICKED(IDCANCEL, &CDonne::OnBnClickedCancel)
+BEGIN_MESSAGE_MAP(CDiagDonne, CDialogEx)
+	ON_CBN_SELCHANGE(IDC_COMBO1, &CDiagDonne::OnCbnSelchangeCombo1)
+	ON_CBN_SELCHANGE(IDC_COMBO2, &CDiagDonne::OnCbnSelchangeCombo2)
+	ON_EN_CHANGE(IDC_EDIT1, &CDiagDonne::OnEnChangeEdit1)
+	ON_BN_CLICKED(IDOK, &CDiagDonne::OnBnClickedOk)
+	ON_BN_CLICKED(IDCANCEL, &CDiagDonne::OnBnClickedCancel)
 END_MESSAGE_MAP()
 
 
 // Gestionnaires de messages de CDonne
 
 
-void CDonne::OnCbnSelchangeCombo1()
+void CDiagDonne::OnCbnSelchangeCombo1()
 {
 	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
 }
 
 
-void CDonne::OnCbnSelchangeCombo2()
+void CDiagDonne::OnCbnSelchangeCombo2()
 {
 	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
 }
 
 
-void CDonne::OnEnChangeEdit1()
+void CDiagDonne::OnEnChangeEdit1()
 {
 	// TODO:  S'il s'agit d'un contrôle RICHEDIT, le contrôle ne
 	// envoyez cette notification sauf si vous substituez CDialogEx::OnInitDialog()
@@ -62,14 +63,14 @@ void CDonne::OnEnChangeEdit1()
 }
 
 
-void CDonne::OnBnClickedOk()
+void CDiagDonne::OnBnClickedOk()
 {
 	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
 	CDialogEx::OnOK();
 }
 
 
-void CDonne::OnBnClickedCancel()
+void CDiagDonne::OnBnClickedCancel()
 {
 	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
 	CDialogEx::OnCancel();

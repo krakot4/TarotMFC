@@ -5,6 +5,7 @@
 #include "TarotMFC.h"
 #include "CNom.h"
 #include "afxdialogex.h"
+#include "CDiagDonne.h"
 
 
 // Boîte de dialogue CNom
@@ -32,8 +33,8 @@ BEGIN_MESSAGE_MAP(CNom, CDialogEx)
 	ON_EN_CHANGE(IDC_EDIT2, &CNom::OnEnChangeEdit2)
 	ON_EN_CHANGE(IDC_EDIT3, &CNom::OnEnChangeEdit3)
 	ON_EN_CHANGE(IDC_EDIT4, &CNom::OnEnChangeEdit4)
-	ON_BN_CLICKED(IDOK, &CNom::OnBnClickedOk)
 	ON_BN_CLICKED(IDCANCEL, &CNom::OnBnClickedCancel)
+	ON_BN_CLICKED(IDC_BUTTON1, &CNom::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -84,15 +85,16 @@ void CNom::OnEnChangeEdit4()
 }
 
 
-void CNom::OnBnClickedOk()
-{
-	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
-	CDialogEx::OnOK();
-}
-
-
 void CNom::OnBnClickedCancel()
 {
 	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
 	CDialogEx::OnCancel();
+}
+
+
+void CNom::OnBnClickedButton1()
+{
+	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+	CDiagDonne PremiereDonne(this);
+	PremiereDonne.DoModal();
 }

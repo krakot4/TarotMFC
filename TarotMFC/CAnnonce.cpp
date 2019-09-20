@@ -40,13 +40,15 @@ END_MESSAGE_MAP()
 
 void CAnnonce::OnCbnSelchangeCombo1()
 {
-	CDialogEx::
+	//CDialogEx::
+
 	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
 }
 
 
 void CAnnonce::OnCbnSelchangeCombo2()
 {
+
 	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
 }
 
