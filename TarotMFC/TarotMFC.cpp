@@ -74,7 +74,7 @@ BOOL CTarotMFCApp::InitInstance()
 	// Changez la clé de Registre sous laquelle nos paramètres sont enregistrés
 	SetRegistryKey(_T("TarotWizard"));
 
-	CDiagNewDonne dlg;
+	CNom dlg;
 	m_pMainWnd = &dlg;
 
 	INT_PTR nResponse = dlg.DoModal();

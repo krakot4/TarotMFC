@@ -44,7 +44,6 @@ BEGIN_MESSAGE_MAP(CNom, CDialogEx)
 	ON_EN_CHANGE(IDC_EDIT3, &CNom::OnEnChangeEdit3)
 	ON_EN_CHANGE(IDC_EDIT4, &CNom::OnEnChangeEdit4)
 	ON_BN_CLICKED(IDCANCEL, &CNom::OnBnClickedCancel)
-	ON_BN_CLICKED(IDC_BUTTON1, &CNom::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -119,6 +118,7 @@ void CNom::OnBnClickedOk()
 	lesJoueurs[3] = new CJoueur(Mystring4, 0);
 	//creer la partie-
 	laPartie = new CPartie(lesJoueurs);
+	laPartie->CreerUneDonne();
 	//passez a la fenetre suivante
 }
 

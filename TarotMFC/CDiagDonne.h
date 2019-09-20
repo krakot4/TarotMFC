@@ -6,7 +6,6 @@
 class CDiagDonne : public CDialogEx
 {
 	DECLARE_DYNAMIC(CDiagDonne)
-
 public:
 	CDiagDonne(CWnd* pParent = NULL);   // constructeur standard
 	virtual ~CDiagDonne();

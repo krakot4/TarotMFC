@@ -6,9 +6,10 @@
 class CDiagNewDonne : public CDialogEx
 {
 	DECLARE_DYNAMIC(CDiagNewDonne)
-
+private:
+	CPartie* laPartie;
 public:
-	CDiagNewDonne(CWnd* pParent = NULL);   // constructeur standard
+	CDiagNewDonne(CPartie *LaPartie, CWnd* pParent = NULL);   // constructeur standard
 	virtual ~CDiagNewDonne();
 
 // Données de boîte de dialogue
