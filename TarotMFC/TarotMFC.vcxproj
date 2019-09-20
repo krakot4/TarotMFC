@@ -189,14 +189,14 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Tarot-master\Tarot\CDonne.h" />
-    <ClInclude Include="..\..\Tarot-master\Tarot\CIHM.h" />
-    <ClInclude Include="..\..\Tarot-master\Tarot\CJoueur.h" />
-    <ClInclude Include="..\..\Tarot-master\Tarot\CPartie.h" />
     <ClInclude Include="CAnnonce.h" />
     <ClInclude Include="CDiagDonne.h" />
     <ClInclude Include="CDiagNewDonne.h" />
+    <ClInclude Include="CDonne.h" />
+    <ClInclude Include="CIHM.h" />
+    <ClInclude Include="CJoueur.h" />
     <ClInclude Include="CNom.h" />
+    <ClInclude Include="CPartie.h" />
     <ClInclude Include="CPoints.h" />
     <ClInclude Include="CScore.h" />
     <ClInclude Include="Resource.h" />
@@ -206,17 +206,17 @@
     <ClInclude Include="TarotMFCDlg.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Tarot-master\Tarot\CDonne.cpp" />
-    <ClCompile Include="..\..\Tarot-master\Tarot\CIHM.cpp" />
-    <ClCompile Include="..\..\Tarot-master\Tarot\CJoueur.cpp" />
-    <ClCompile Include="..\..\Tarot-master\Tarot\CPartie.cpp" />
-    <ClCompile Include="..\..\Tarot-master\Tarot\Main.cpp" />
     <ClCompile Include="CAnnonce.cpp" />
     <ClCompile Include="CDiagDonne.cpp" />
     <ClCompile Include="CDiagNewDonne.cpp" />
+    <ClCompile Include="CDonne.cpp" />
+    <ClCompile Include="CIHM.cpp" />
+    <ClCompile Include="CJoueur.cpp" />
     <ClCompile Include="CNom.cpp" />
+    <ClCompile Include="CPartie.cpp" />
     <ClCompile Include="CPoints.cpp" />
     <ClCompile Include="CScore.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
