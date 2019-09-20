@@ -72,10 +72,11 @@ BOOL CTarotMFCApp::InitInstance()
 	// de votre exécutable final, vous devez supprimer ci-dessous
 	// les routines d'initialisation spécifiques dont vous n'avez pas besoin.
 	// Changez la clé de Registre sous laquelle nos paramètres sont enregistrés
-	SetRegistryKey(_T("TarotWizard, dévellopé par 3 abrutis"));
+	SetRegistryKey(_T("TarotWizard"));
 
-	CNom dlg;
+	CDiagNewDonne dlg;
 	m_pMainWnd = &dlg;
+
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)
 	{

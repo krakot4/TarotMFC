@@ -5,6 +5,10 @@
 #include "TarotMFC.h"
 #include "CDiagNewDonne.h"
 #include "afxdialogex.h"
+#include "CDiagDonne.h"
+#include "CDonne.h"
+#include "CPartie.h"
+#include "CNom.h"
 
 
 // Boîte de dialogue CDiagNewDonne
@@ -39,12 +43,24 @@ END_MESSAGE_MAP()
 void CDiagNewDonne::OnBnClickedOk()
 {
 	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
-	CDialogEx::OnOK();
+	//Création de la nouvelle donne et des nouvelles variables
+	
+	//Ouverture de la page Donne
+	CDiagDonne Donne(this);
+	ShowWindow(SW_HIDE);
+	//laPartie définit dans CNom
+	laPartie.CreerUneDonne();
+	Donne.DoModal();	
+	ShowWindow(SW_SHOW);
+
 }
 
 
 void CDiagNewDonne::OnBnClickedCancel()
 {
 	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+	//Sauvegarde de la partie
+
+	//Fermeture de la fenêtre
 	CDialogEx::OnCancel();
 }

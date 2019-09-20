@@ -28,8 +28,9 @@ void CPartie::SetPetitAuBout(camp petit)
 }
 
 //ok
-void CPartie::CreerUneDonne(CJoueur * leDonneur)
+void CPartie::CreerUneDonne()
 {
+	SetDonneur();
 	lesDonnes[nDonne] = new CDonne(leDonneur);
 	nDonne++;
 }
@@ -50,6 +51,13 @@ void CPartie::SetChelem(chelem t)
 void CPartie::SetContrat(CJoueur * lePreneur, contrat t, CJoueur * lesD[])
 {
 	lesDonnes[nDonne - 1]->SetContratD(lePreneur, t, lesD);
+}
+
+void CPartie::SetDonneur()
+{
+	int n;
+	n = (nDonne % 4);
+	leDonneur = lesJoueurs[n];
 }
 
 #ifdef TESTU_SETPETITBOUT

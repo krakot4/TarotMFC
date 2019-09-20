@@ -6,6 +6,7 @@
 #include "CNom.h"
 #include "afxdialogex.h"
 #include "CDiagDonne.h"
+#include "CPartie.h"
 
 
 // Boîte de dialogue CNom
