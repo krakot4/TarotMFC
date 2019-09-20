@@ -4,7 +4,7 @@
 //Déclaration types énumérés
 enum contrat { passe, prise, garde, garde_sans, garde_contre };
 enum camp { preneur, personne, defenseur };
-enum poignee { non, simple, doublee, triplee};
+enum poignee { non, simple, doublee, triplee };
 enum chelem { sans, reussi, perdu, sans_annonce };
 
 class CDonne
@@ -31,5 +31,5 @@ public:
 	void SetCampPetitAuBout(camp p);
 	void SetTypePoignee(camp poigne, poignee typ);
 	void SetChelemD(chelem type);
-	void SetContratD(CJoueur *d, contrat c,CJoueur *lesDefenseurs[]);
+	void SetContratD(CJoueur *d, contrat c, CJoueur *lesDefenseurs[]);
 };

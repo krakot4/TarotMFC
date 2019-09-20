@@ -1,8 +1,8 @@
+#include "stdafx.h"
 #include "CDonne.h"
 #include "CJoueur.h"
 #include "CPartie.h"
 #include <iostream>
-#include "stdafx.h"
 using namespace std;
 //#define TESTU_COMPTERPOINTS
 //#define TESTU_SETCAMPPETIT
@@ -19,12 +19,12 @@ CDonne::CDonne(CJoueur* donneur)
 /*
 CDonne::CDonne(CJoueur *donneur, CJoueur *preneur, CJoueur *defenseurs[3])
 {
-	this->le_donneur = donneur;
-	this->lePreneur = preneur;
-	for (int i = 0; i <= 2; i++)
-	{
-		this->les_defenseurs[i] = defenseurs[i];
-	}
+this->le_donneur = donneur;
+this->lePreneur = preneur;
+for (int i = 0; i <= 2; i++)
+{
+this->les_defenseurs[i] = defenseurs[i];
+}
 }
 */
 

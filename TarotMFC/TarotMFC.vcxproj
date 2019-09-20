@@ -193,7 +193,6 @@
     <ClInclude Include="CDiagDonne.h" />
     <ClInclude Include="CDiagNewDonne.h" />
     <ClInclude Include="CDonne.h" />
-    <ClInclude Include="CIHM.h" />
     <ClInclude Include="CJoueur.h" />
     <ClInclude Include="CNom.h" />
     <ClInclude Include="CPartie.h" />
@@ -210,13 +209,11 @@
     <ClCompile Include="CDiagDonne.cpp" />
     <ClCompile Include="CDiagNewDonne.cpp" />
     <ClCompile Include="CDonne.cpp" />
-    <ClCompile Include="CIHM.cpp" />
     <ClCompile Include="CJoueur.cpp" />
     <ClCompile Include="CNom.cpp" />
     <ClCompile Include="CPartie.cpp" />
     <ClCompile Include="CPoints.cpp" />
     <ClCompile Include="CScore.cpp" />
-    <ClCompile Include="Main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

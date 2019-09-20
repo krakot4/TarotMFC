@@ -1,9 +1,9 @@
+#include "stdafx.h"
 #include "CJoueur.h"
 #include "CDonne.h"
 #include "CPartie.h"
-#include "CIHM.h"
+//#include "CIHM.h"
 #include <iostream>
-#include "stdafx.h"
 //#define TESTU_MAJSCORE
 //#define TESTU_LIRESCORE
 //#define TESTU_LIRENOM

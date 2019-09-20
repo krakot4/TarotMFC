@@ -1,5 +1,5 @@
-#include "CPartie.h"
 #include "stdafx.h"
+#include "CPartie.h"
 //#define TESTU_SETPETITBOUT
 //#define TESTU_CREERUNEDONNE
 //#define TESTU_SETPOIGNEE

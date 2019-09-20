@@ -3,13 +3,13 @@
 
 // Boîte de dialogue CDonne
 
-class CDonne : public CDialogEx
+class CDiagDonne : public CDialogEx
 {
-	DECLARE_DYNAMIC(CDonne)
+	DECLARE_DYNAMIC(CDiagDonne)
 
 public:
-	CDonne(CWnd* pParent = NULL);   // constructeur standard
-	virtual ~CDonne();
+	CDiagDonne(CWnd* pParent = NULL);   // constructeur standard
+	virtual ~CDiagDonne();
 
 // Données de boîte de dialogue
 #ifdef AFX_DESIGN_TIME
