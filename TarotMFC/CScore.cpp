@@ -5,6 +5,7 @@
 #include "TarotMFC.h"
 #include "CScore.h"
 #include "afxdialogex.h"
+#include "CNom.h"
 
 
 // Boîte de dialogue CScore
@@ -14,7 +15,8 @@ IMPLEMENT_DYNAMIC(CScore, CDialogEx)
 CScore::CScore(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_TAROTMFC_SCORES, pParent)
 {
-
+	CNom dlg;
+	dlg.DoModal();
 }
 
 CScore::~CScore()

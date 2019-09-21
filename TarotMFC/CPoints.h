@@ -1,5 +1,6 @@
 #pragma once
 #include "stdafx.h"
+#include "CDonne.h"
 
 
 // boîte de dialogue de CPoints
@@ -25,4 +26,8 @@ public:
 	int bouts_preneur;
 	int pts_a_faire;
 	afx_msg void BoutEntre();
+	int pts_preneur;
+	int pts_donne;
+	afx_msg void PointsChange();
+	afx_msg void OnBnClickedOk();
 };

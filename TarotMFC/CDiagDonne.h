@@ -1,4 +1,6 @@
 #pragma once
+#include "CDonne.h"
+#include "CNom.h"
 
 
 // Boîte de dialogue CDonne
@@ -20,9 +22,11 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnCbnSelchangeCombo1();
-	afx_msg void OnCbnSelchangeCombo2();
-	afx_msg void OnEnChangeEdit1();
+	afx_msg void JPriseChange();
+	afx_msg void PriseChange();
 	afx_msg void OnBnClickedOk();
-	afx_msg void OnBnClickedCancel();
+	int int_jprise;
+	int int_prise;
+	contrat typ_ctr;
+	CPartie* laPartie;
 };

@@ -1,4 +1,5 @@
 #pragma once
+#include "CDonne.h"
 
 
 // Boîte de dialogue CAnnonce
@@ -21,8 +22,12 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnCbnSelchangeCombo1();
-	afx_msg void OnCbnSelchangeCombo2();
+	afx_msg void PoigneeChange();
+	afx_msg void CampChange();
 	afx_msg void OnBnClickedOk();
 	afx_msg void OnBnClickedCancel();
+	int int_pgn;
+	int int_cmp;
+	poignee pgn;
+	camp cmp_bout;
 };
