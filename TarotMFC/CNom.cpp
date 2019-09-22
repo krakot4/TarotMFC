@@ -7,20 +7,21 @@
 #include "afxdialogex.h"
 #include "CDiagDonne.h"
 #include "CPartie.h"
+#include "CScore.h"
 
 
 // Boîte de dialogue CNom
 
 IMPLEMENT_DYNAMIC(CNom, CDialogEx)
 
-CNom::CNom(CPartie *partie,CWnd* pParent /*=NULL*/)
+CNom::CNom(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_TAROTMFC_NOM, pParent)
 	, mJoueur1(_T(""))
 	, mJoueur2(_T(""))
 	, mJoueur3(_T(""))
 	, mJoueur4(_T(""))
 {
-	partie = laPartie;
+	
 }
 
 CNom::~CNom()
@@ -67,7 +68,8 @@ void CNom::OnBnClickedOk()
 	laPartie = new CPartie(lesJoueurs);
 	laPartie->CreerUneDonne();
 	//passez a la fenetre suivante
-	CDiagDonne dlg;
+	CDiagDonne dlg(laPartie);
+	CScore Score();
 	dlg.DoModal();
 	CDialogEx::OnOK();
 }

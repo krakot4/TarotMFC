@@ -9,17 +9,17 @@ class CDiagDonne : public CDialogEx
 {
 	DECLARE_DYNAMIC(CDiagDonne)
 public:
-	CDiagDonne(CWnd* pParent = NULL);   // constructeur standard
+	CDiagDonne(CPartie * laP, CWnd* pParent = NULL);   // constructeur standard
 	virtual ~CDiagDonne();
 
-// Données de boîte de dialogue
+	// Données de boîte de dialogue
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_TAROTMFC_DONNE };
 #endif
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // Prise en charge de DDX/DDV
-
+	CPartie* laPartie;
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void JPriseChange();
@@ -28,5 +28,5 @@ public:
 	int int_jprise;
 	int int_prise;
 	contrat typ_ctr;
-	CPartie* laPartie;
+
 };

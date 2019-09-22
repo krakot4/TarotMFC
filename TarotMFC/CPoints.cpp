@@ -5,20 +5,22 @@
 #include "TarotMFC.h"
 #include "CPoints.h"
 #include "afxdialogex.h"
+#include "CNom.h"
+#include "CScore.h"
 
 
 // boîte de dialogue de CPoints
 
 IMPLEMENT_DYNAMIC(CPoints, CDialogEx)
 
-CPoints::CPoints(CWnd* pParent /*=nullptr*/)
+CPoints::CPoints(CPartie * laP, CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_TAROTMFC_POINTS, pParent)
 	, bouts_preneur(0)
 	, pts_a_faire(0)
 	, pts_preneur(0)
 	, pts_donne(0)
 {
-
+	laPartie = laP;
 }
 
 CPoints::~CPoints()
@@ -79,5 +81,7 @@ void CPoints::PointsChange()
 void CPoints::OnBnClickedOk()
 {
 	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+	//focus sur les scores à la fin du calcul des résultats ?
+	// /!\Score.DoModal();
 	CDialogEx::OnOK();
 }

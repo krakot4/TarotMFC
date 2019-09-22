@@ -8,7 +8,7 @@ class CDiagNewDonne : public CDialogEx
 {
 	DECLARE_DYNAMIC(CDiagNewDonne)
 private:
-	CPartie *laPartie;
+
 public:
 	CDiagNewDonne(CPartie *LaPartie, CWnd* pParent = NULL);   // constructeur standard
 	virtual ~CDiagNewDonne();
@@ -20,7 +20,7 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // Prise en charge de DDX/DDV
-
+	CPartie* laPartie;
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedOk();

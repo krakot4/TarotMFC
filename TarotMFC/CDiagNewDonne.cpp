@@ -15,10 +15,10 @@
 
 IMPLEMENT_DYNAMIC(CDiagNewDonne, CDialogEx)
 
-CDiagNewDonne::CDiagNewDonne(CPartie *LaPartie, CWnd* pParent /*=NULL*/)
+CDiagNewDonne::CDiagNewDonne(CPartie *LaP, CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_TAROTMFC_NEWDONNE, pParent)
 {
-	laPartie = LaPartie;
+	laPartie = LaP;
 }
 
 CDiagNewDonne::~CDiagNewDonne()
@@ -45,7 +45,7 @@ void CDiagNewDonne::OnBnClickedOk()
 	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
 	
 	//Ouverture de la page Donne
-	CDiagDonne Donne(this);
+	CDiagDonne Donne(laPartie);
 	ShowWindow(SW_HIDE);
 	Donne.DoModal();
 	laPartie->CreerUneDonne();

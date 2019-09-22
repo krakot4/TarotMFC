@@ -15,8 +15,9 @@ IMPLEMENT_DYNAMIC(CScore, CDialogEx)
 CScore::CScore(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_TAROTMFC_SCORES, pParent)
 {
-	CNom dlg;
-	dlg.DoModal();
+	//problème de construction de la partie --> passage en argument ou création dans CNom ?
+	//CNom dlg;
+	//dlg.DoModal();
 }
 
 CScore::~CScore()

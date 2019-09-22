@@ -6,18 +6,20 @@
 #include "CAnnonce.h"
 #include "afxdialogex.h"
 #include "CPoints.h"
+#include "CPartie.h"
+#include "CDonne.h"
 
 
 // Boîte de dialogue CAnnonce
 
 IMPLEMENT_DYNAMIC(CAnnonce, CDialogEx)
 
-CAnnonce::CAnnonce(CWnd* pParent /*=NULL*/)
+CAnnonce::CAnnonce(CPartie * laP, CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_TAROTMFC_ANNONCE, pParent)
 	, int_pgn(0)
 	, int_cmp(0)
 {
-
+	laPartie = laP;
 }
 
 CAnnonce::~CAnnonce()
@@ -84,7 +86,7 @@ void CAnnonce::CampChange()
 
 void CAnnonce::OnBnClickedOk()
 {
-	CPoints dlg;
+	CPoints dlg(laPartie);
 	dlg.DoModal();
 	CDialogEx::OnOK();
 }

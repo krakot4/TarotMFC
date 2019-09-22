@@ -9,7 +9,7 @@ class CNom : public CDialogEx
 	DECLARE_DYNAMIC(CNom)
 
 public:
-	CNom(CPartie *partie,CWnd* pParent = NULL);   // constructeur standard
+	CNom(CWnd* pParent = NULL);   // constructeur standard
 	virtual ~CNom();
 
 	// Données de boîte de dialogue

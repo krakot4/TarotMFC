@@ -12,12 +12,12 @@
 
 IMPLEMENT_DYNAMIC(CDiagDonne, CDialogEx)
 
-CDiagDonne::CDiagDonne(CWnd* pParent /*=NULL*/)
+CDiagDonne::CDiagDonne(CPartie *laP,CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_TAROTMFC_DONNE, pParent)
 	, int_jprise(0)
 	, int_prise(0)
 {
-	
+	laPartie=laP;
 }
 
 CDiagDonne::~CDiagDonne()
@@ -86,7 +86,7 @@ void CDiagDonne::PriseChange()
 
 void CDiagDonne::OnBnClickedOk()
 {
-	CAnnonce dlg;
+	CAnnonce dlg(laPartie);
 	dlg.DoModal();
 	CDialogEx::OnOK();
 }
