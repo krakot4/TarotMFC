@@ -26,9 +26,11 @@ public:
 	afx_msg void PoigneeChange();
 	afx_msg void CampChange();
 	afx_msg void OnBnClickedOk();
-	afx_msg void OnBnClickedCancel();
 	int int_pgn;
 	int int_cmp;
 	poignee pgn;
 	camp cmp_bout;
+	camp cmp_pgn;
+	afx_msg void CampPoigneeChange();
+	int int_camp_pgn;
 };

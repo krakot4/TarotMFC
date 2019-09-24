@@ -27,7 +27,7 @@ public:
 	CDonne(CJoueur *donneur);
 	//CDonne(CJoueur *donneur, CJoueur *preneur, CJoueur *defenseurs[3]);
 	~CDonne();
-	void CompterPoints(int bouts, int pts, poignee pgn, camp cmp);
+	int CompterPoints(int bouts, int pts);
 	void SetCampPetitAuBout(camp p);
 	void SetTypePoignee(camp poigne, poignee typ);
 	void SetChelemD(chelem type);

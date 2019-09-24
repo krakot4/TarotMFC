@@ -6,6 +6,7 @@
 #include "CDiagDonne.h"
 #include "afxdialogex.h"
 #include "CAnnonce.h"
+#include "CDiagNewDonne.h"
 
 
 // Boîte de dialogue CDonne
@@ -16,6 +17,7 @@ CDiagDonne::CDiagDonne(CPartie *laP,CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_TAROTMFC_DONNE, pParent)
 	, int_jprise(0)
 	, int_prise(0)
+	, nom_joueur(_T(""))
 {
 	laPartie=laP;
 }
@@ -30,6 +32,7 @@ void CDiagDonne::DoDataExchange(CDataExchange* pDX)
 	CDialogEx::DoDataExchange(pDX);
 	DDX_CBIndex(pDX, IDC_COMBO1, int_jprise);
 	DDX_CBIndex(pDX, IDC_COMBO2, int_prise);
+	DDX_Text(pDX, IDC_EDIT1, nom_joueur);
 }
 
 
@@ -37,6 +40,7 @@ BEGIN_MESSAGE_MAP(CDiagDonne, CDialogEx)
 	ON_CBN_SELCHANGE(IDC_COMBO1, &CDiagDonne::JPriseChange)
 	ON_CBN_SELCHANGE(IDC_COMBO2, &CDiagDonne::PriseChange)
 	ON_BN_CLICKED(IDOK, &CDiagDonne::OnBnClickedOk)
+	ON_BN_CLICKED(IDC_BUTTON1, &CDiagDonne::Redistribuer)
 END_MESSAGE_MAP()
 
 
@@ -50,17 +54,23 @@ void CDiagDonne::JPriseChange()
 	switch (int_jprise)
 	{
 	case 0:
-		
+		nom_joueur = "Personne";
+		GetDlgItem(IDC_BUTTON1)->ShowWindow(SW_SHOW);
 		break;
 	case 1:
+		nom_joueur = "Joueur 1";
 		break;
 	case 2:
+		nom_joueur = "Joueur 2";
 		break;
 	case 3:
+		nom_joueur = "Joueur 3";
 		break;
 	case 4:
+		nom_joueur = "Joueur 4";
 		break;
 	}
+	UpdateData(false);
 }
 
 
@@ -89,4 +99,11 @@ void CDiagDonne::OnBnClickedOk()
 	CAnnonce dlg(laPartie);
 	dlg.DoModal();
 	CDialogEx::OnOK();
+}
+
+
+void CDiagDonne::Redistribuer()
+{
+	CDiagNewDonne dlg(laPartie);
+	dlg.DoModal();
 }

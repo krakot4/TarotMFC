@@ -28,5 +28,6 @@ public:
 	int int_jprise;
 	int int_prise;
 	contrat typ_ctr;
-
+	CString nom_joueur;
+	afx_msg void Redistribuer();
 };

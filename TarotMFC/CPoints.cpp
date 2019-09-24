@@ -74,14 +74,14 @@ void CPoints::BoutEntre()
 void CPoints::PointsChange()
 {
 	UpdateData(true);
-
+	pts_donne = laPartie->DoMajScore(bouts_preneur, pts_preneur);
+	UpdateData(false);
 }
 
 
 void CPoints::OnBnClickedOk()
 {
-	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
-	//focus sur les scores à la fin du calcul des résultats ?
-	// /!\Score.DoModal();
+	CScore dlg;
+	dlg.DoModal();
 	CDialogEx::OnOK();
 }

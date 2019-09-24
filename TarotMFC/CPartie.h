@@ -13,6 +13,7 @@ private:
 	int point;
 	CJoueur *leDonneur;
 	contrat typ_ctr;
+	int pts_preneur;
 public:
 	CPartie(CJoueur *joueurs[]);
 	~CPartie();
@@ -23,4 +24,5 @@ public:
 	void SetContrat(CJoueur *lesJoueurs, contrat t, CJoueur *lesD[]);
 	void SetNbBouts(int nb_bouts);
 	void SetDonneur();
+	int DoMajScore(int nb_bouts, int points);
 };

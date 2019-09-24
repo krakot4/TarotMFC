@@ -69,7 +69,7 @@ void CNom::OnBnClickedOk()
 	laPartie->CreerUneDonne();
 	//passez a la fenetre suivante
 	CDiagDonne dlg(laPartie);
-	CScore Score();
+	//CScore Score();
 	dlg.DoModal();
 	CDialogEx::OnOK();
 }
