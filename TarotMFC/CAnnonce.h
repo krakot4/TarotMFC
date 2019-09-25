@@ -10,7 +10,7 @@ class CAnnonce : public CDialogEx
 	DECLARE_DYNAMIC(CAnnonce)
 
 public:
-	CAnnonce(CPartie * laP,CWnd* pParent = NULL);   // constructeur standard
+	CAnnonce(CPartie * laP,CJoueur *lesJoueurs[],CWnd* pParent = NULL);   // constructeur standard
 	virtual ~CAnnonce();
 
 // Données de boîte de dialogue
@@ -21,6 +21,7 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // Prise en charge de DDX/DDV
 	CPartie* laPartie;
+	CJoueur* lesJoueurs[4];
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void PoigneeChange();

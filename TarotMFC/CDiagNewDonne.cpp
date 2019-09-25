@@ -9,16 +9,20 @@
 #include "CDonne.h"
 #include "CPartie.h"
 #include "CNom.h"
+#include "CJoueur.h"
+#include "CPoints.h"
 
 
 // Boîte de dialogue CDiagNewDonne
 
 IMPLEMENT_DYNAMIC(CDiagNewDonne, CDialogEx)
 
-CDiagNewDonne::CDiagNewDonne(CPartie *LaP, CWnd* pParent /*=NULL*/)
+CDiagNewDonne::CDiagNewDonne(CPartie *LaP,CJoueur * lesJoueurs[], CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_TAROTMFC_NEWDONNE, pParent)
 {
 	laPartie = LaP;
+	for (int i = 0; i < 4; i++)
+		this->lesJoueurs[i] = lesJoueurs[i];
 }
 
 CDiagNewDonne::~CDiagNewDonne()
@@ -45,7 +49,7 @@ void CDiagNewDonne::OnBnClickedOk()
 	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
 	
 	//Ouverture de la page Donne
-	CDiagDonne Donne(laPartie);
+	CDiagDonne Donne(laPartie,lesJoueurs);
 	ShowWindow(SW_HIDE);
 	Donne.DoModal();
 	laPartie->CreerUneDonne();

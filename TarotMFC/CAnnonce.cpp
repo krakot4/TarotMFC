@@ -14,13 +14,15 @@
 
 IMPLEMENT_DYNAMIC(CAnnonce, CDialogEx)
 
-CAnnonce::CAnnonce(CPartie * laP, CWnd* pParent /*=NULL*/)
+CAnnonce::CAnnonce(CPartie * laP, CJoueur * lesJoueurs[], CWnd* pParent)/*=NULL*/
 	: CDialogEx(IDD_TAROTMFC_ANNONCE, pParent)
 	, int_pgn(0)
 	, int_cmp(0)
 	, int_camp_pgn(0)
 {
 	laPartie = laP;
+	for (int i = 0; i < 4; i++)
+		this->lesJoueurs[i] = lesJoueurs[i];
 }
 
 CAnnonce::~CAnnonce()
@@ -65,7 +67,7 @@ void CAnnonce::PoigneeChange()
 	case 3:
 		pgn = triplee;
 		break;
-	}	
+	}
 }
 
 
@@ -92,7 +94,8 @@ void CAnnonce::CampChange()
 
 void CAnnonce::OnBnClickedOk()
 {
-	CPoints dlg(laPartie);
+	CPoints dlg(laPartie, lesJoueurs);
+	PostMessage(WM_KEYDOWN, VK_ACCEPT, 0);
 	dlg.DoModal();
 	CDialogEx::OnOK();
 }

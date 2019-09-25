@@ -8,7 +8,7 @@ class CScore : public CDialogEx
 	DECLARE_DYNAMIC(CScore)
 
 public:
-	CScore(CWnd* pParent = NULL);   // constructeur standard
+	CScore(CJoueur* lesJoueurs[],CWnd* pParent = NULL);   // constructeur standard
 	virtual ~CScore();
 
 // Données de boîte de dialogue

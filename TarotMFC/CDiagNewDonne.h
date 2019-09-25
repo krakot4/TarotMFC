@@ -10,7 +10,7 @@ class CDiagNewDonne : public CDialogEx
 private:
 
 public:
-	CDiagNewDonne(CPartie *LaPartie, CWnd* pParent = NULL);   // constructeur standard
+	CDiagNewDonne(CPartie *LaPartie,CJoueur*lesJoueurs[], CWnd* pParent = NULL);   // constructeur standard
 	virtual ~CDiagNewDonne();
 
 // Données de boîte de dialogue
@@ -21,6 +21,8 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // Prise en charge de DDX/DDV
 	CPartie* laPartie;
+	CJoueur* lesJoueurs[];
+
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedOk();
