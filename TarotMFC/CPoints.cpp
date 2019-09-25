@@ -88,3 +88,15 @@ void CPoints::OnBnClickedOk()
 	dlg.DoModal();
 	CDialogEx::OnOK();
 }
+
+
+void CPoints::OnBnClickedCancel()
+{
+	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+	CDialogEx::OnCancel();
+}
+
+void CPoints::SetNbBouts(int nb_bouts)
+{
+	bouts = nb_bouts;
+}
