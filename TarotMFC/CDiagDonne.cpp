@@ -13,13 +13,17 @@
 
 IMPLEMENT_DYNAMIC(CDiagDonne, CDialogEx)
 
-CDiagDonne::CDiagDonne(CPartie *laP,CWnd* pParent /*=NULL*/)
+CDiagDonne::CDiagDonne(CPartie *laP,CJoueur * lesJoueurs[],CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_TAROTMFC_DONNE, pParent)
 	, int_jprise(0)
 	, int_prise(0)
 	, nom_joueur(_T(""))
 {
 	laPartie=laP;
+	for (int i = 0; i < 4; i++)
+	{
+		this->lesJoueurs[i] = lesJoueurs[i];
+	}
 }
 
 CDiagDonne::~CDiagDonne()
@@ -96,7 +100,8 @@ void CDiagDonne::PriseChange()
 
 void CDiagDonne::OnBnClickedOk()
 {
-	CAnnonce dlg(laPartie);
+	CAnnonce dlg(laPartie,lesJoueurs);
+	PostMessage(WM_KEYDOWN, VK_ACCEPT, 0);
 	dlg.DoModal();
 	CDialogEx::OnOK();
 }
@@ -104,6 +109,7 @@ void CDiagDonne::OnBnClickedOk()
 
 void CDiagDonne::Redistribuer()
 {
-	CDiagNewDonne dlg(laPartie);
+	CDiagNewDonne dlg(laPartie,lesJoueurs);
+	PostMessage(WM_KEYDOWN, VK_ACCEPT, 0);
 	dlg.DoModal();
 }

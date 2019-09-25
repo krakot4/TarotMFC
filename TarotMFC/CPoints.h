@@ -11,7 +11,7 @@ class CPoints : public CDialogEx
 	DECLARE_DYNAMIC(CPoints)
 
 public:
-	CPoints(CPartie * laPartie,CWnd* pParent = nullptr);   // constructeur standard
+	CPoints(CPartie * laPartie,CJoueur * lesJoueurs[],CWnd* pParent = nullptr);   // constructeur standard
 	virtual ~CPoints();
 
 // Données de boîte de dialogue
@@ -22,6 +22,7 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // Prise en charge de DDX/DDV
 	CPartie* laPartie;
+	CJoueur* lesJoueurs[4];
 	DECLARE_MESSAGE_MAP()
 public:
 	int bouts_preneur;

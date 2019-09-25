@@ -68,7 +68,8 @@ void CNom::OnBnClickedOk()
 	laPartie = new CPartie(lesJoueurs);
 	laPartie->CreerUneDonne();
 	//passez a la fenetre suivante
-	CDiagDonne dlg(laPartie);
+	CDiagDonne dlg(laPartie,lesJoueurs);
+	PostMessage(WM_KEYDOWN, VK_ACCEPT, 0);
 	//CScore Score();
 	dlg.DoModal();
 	CDialogEx::OnOK();

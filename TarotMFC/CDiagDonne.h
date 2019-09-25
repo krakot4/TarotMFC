@@ -9,7 +9,7 @@ class CDiagDonne : public CDialogEx
 {
 	DECLARE_DYNAMIC(CDiagDonne)
 public:
-	CDiagDonne(CPartie * laP, CWnd* pParent = NULL);   // constructeur standard
+	CDiagDonne(CPartie * laP,CJoueur* lesJoueurs[], CWnd* pParent = NULL);   // constructeur standard
 	virtual ~CDiagDonne();
 
 	// Données de boîte de dialogue
@@ -20,6 +20,7 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // Prise en charge de DDX/DDV
 	CPartie* laPartie;
+	CJoueur* lesJoueurs[4];
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void JPriseChange();

@@ -13,7 +13,7 @@
 
 IMPLEMENT_DYNAMIC(CPoints, CDialogEx)
 
-CPoints::CPoints(CPartie * laP, CWnd* pParent /*=nullptr*/)
+CPoints::CPoints(CPartie * laP,CJoueur * lesJoueurs[], CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_TAROTMFC_POINTS, pParent)
 	, bouts_preneur(0)
 	, pts_a_faire(0)
@@ -21,6 +21,8 @@ CPoints::CPoints(CPartie * laP, CWnd* pParent /*=nullptr*/)
 	, pts_donne(0)
 {
 	laPartie = laP;
+	for (int i = 0; i < 4; i++)
+		this->lesJoueurs[i] = lesJoueurs[i];
 }
 
 CPoints::~CPoints()
@@ -82,6 +84,7 @@ void CPoints::PointsChange()
 void CPoints::OnBnClickedOk()
 {
 	CScore dlg;
+	PostMessage(WM_KEYDOWN, VK_ACCEPT, 0);
 	dlg.DoModal();
 	CDialogEx::OnOK();
 }
