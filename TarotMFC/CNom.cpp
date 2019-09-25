@@ -41,7 +41,7 @@ void CNom::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CNom, CDialogEx)
 	ON_BN_CLICKED(IDOK, &CNom::OnBnClickedOk)
-	ON_ACN_START(IDC_ANIMATE1, &CNom::OnAcnStartAnimate1)
+//	ON_ACN_START(IDC_ANIMATE1, &CNom::OnAcnStartAnimate1)
 END_MESSAGE_MAP()
 
 void CNom::OnBnClickedOk()
@@ -53,13 +53,13 @@ void CNom::OnBnClickedOk()
 	string Mystring = strA.GetBuffer();   // avec MyCString de type CString.
 
 	CStringA strB(mJoueur2);      // multi-byte
-	string Mystring2 = strA.GetBuffer();
+	string Mystring2 = strB.GetBuffer();
 
 	CStringA strC(mJoueur3);      // multi-byte
-	string Mystring3 = strA.GetBuffer();
+	string Mystring3 = strC.GetBuffer();
 
 	CStringA strD(mJoueur4);      // multi-byte
-	string Mystring4 = strA.GetBuffer();
+	string Mystring4 = strD.GetBuffer();
 
 	lesJoueurs[0] = new CJoueur(Mystring, 0);
 	lesJoueurs[1] = new CJoueur(Mystring2, 0);
@@ -69,10 +69,9 @@ void CNom::OnBnClickedOk()
 	laPartie = new CPartie(lesJoueurs);
 	laPartie->CreerUneDonne();
 	//passez a la fenetre suivante
-	CDiagDonne dlg(laPartie,lesJoueurs);
-	PostMessage(WM_KEYDOWN, VK_ACCEPT, 0);
-	//CScore Score();
+	CDiagDonne dlg(laPartie,lesJoueurs);	
 	dlg.DoModal();
+	PostMessage(WM_KEYDOWN, VK_ACCEPT, 0);
 	CDialogEx::OnOK();
 }
 

@@ -21,7 +21,7 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // Prise en charge de DDX/DDV
 	CPartie* laPartie;
-	CJoueur* lesJoueurs[];
+	CJoueur* lesJoueurs[4];
 
 	DECLARE_MESSAGE_MAP()
 public:

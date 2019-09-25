@@ -73,11 +73,14 @@ BOOL CTarotMFCApp::InitInstance()
 	// les routines d'initialisation spécifiques dont vous n'avez pas besoin.
 	// Changez la clé de Registre sous laquelle nos paramètres sont enregistrés
 	SetRegistryKey(_T("TarotWizard"));
-
+	CNom dlg;
+	dlg.DoModal();
+	/*
 	CTarotMFCDlg dlg;
 	m_pMainWnd = &dlg;
 
 	INT_PTR nResponse = dlg.DoModal();
+	
 	if (nResponse == IDOK)
 	{
 		// TODO: placez ici le code définissant le comportement lorsque la boîte de dialogue est
@@ -93,7 +96,7 @@ BOOL CTarotMFCApp::InitInstance()
 		TRACE(traceAppMsg, 0, "Avertissement : échec de création de la boîte de dialogue, par conséquent, l'application s'arrête de manière inattendue.\n");
 		TRACE(traceAppMsg, 0, "Avertissement : si vous utilisez les contrôles MFC de la boîte de dialogue, vous ne pouvez pas exécuter #define _AFX_NO_MFC_CONTROLS_IN_DIALOGS.\n");
 	}
-
+	*/
 	// Supprimer le gestionnaire de shell créé ci-dessus.
 	if (pShellManager != NULL)
 	{
