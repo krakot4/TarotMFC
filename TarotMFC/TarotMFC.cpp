@@ -5,6 +5,8 @@
 #include "stdafx.h"
 #include "TarotMFC.h"
 #include "TarotMFCDlg.h"
+#include "CScore.h"
+#include "CJoueur.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -70,7 +72,15 @@ BOOL CTarotMFCApp::InitInstance()
 	// telles que le nom de votre société ou organisation
 	SetRegistryKey(_T("Applications locales générées par AppWizard"));
 
-	CTarotMFCDlg dlg;
+	CJoueur *t[4];
+	t[0] = new CJoueur("tony", 60);
+	t[1] = new CJoueur("theo", 70);
+	t[2] = new CJoueur("leo", 120);
+	t[3] = new CJoueur("vivien", 50);
+
+
+
+	CScore dlg(t);
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)

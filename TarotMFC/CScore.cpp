@@ -13,23 +13,29 @@
 
 IMPLEMENT_DYNAMIC(CScore, CDialogEx)
 
-CScore::CScore(CWnd* pParent /*=NULL*/)
+
+CScore::CScore(CJoueur *lesJoueurs[],CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_TARROTMFC_SCORE, pParent)
 	, nomJoueur1(_T(""))
 	, nomJoueur2(_T(""))
 	, nomJoueur3(_T(""))
 	, nomJoueur4(_T(""))
-	, score1(_T(""))
-	, score2(_T(""))
-	, score3(_T(""))
-	, score4(_T(""))
+	, score1(0)
+	, score2(0)
+	, score3(0)
+	, score4(0)
 {
+	for (int i = 0; i < 4; i++)
+	{
+		nomJoueur[i] = lesJoueurs[i];
+	}
 
 }
 
 CScore::~CScore()
 {
 }
+
 
 void CScore::DoDataExchange(CDataExchange* pDX)
 {
@@ -44,14 +50,38 @@ void CScore::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, ID_SCORE_4, score4);
 }
 
-void CScore::afficherNom(CJoueur lesJoueurs[])
+void CScore::afficherNom()
 {
-	nomJoueur1 = lesJoueurs[0];
+	nomJoueur1 = CString(nomJoueur[0]->LireNom().c_str());
+	nomJoueur2 = CString(nomJoueur[1]->LireNom().c_str());
+	nomJoueur3 = CString(nomJoueur[2]->LireNom().c_str());
+	nomJoueur4 = CString(nomJoueur[3]->LireNom().c_str());
+	UpdateData(false);
+}
+
+void CScore::afficherScore()
+{
+	score1 = nomJoueur[0]->LireScore();
+	score2 = nomJoueur[1]->LireScore();
+	score3 = nomJoueur[2]->LireScore();
+	score4 = nomJoueur[3]->LireScore();
+	UpdateData(false);
 }
 
 
 BEGIN_MESSAGE_MAP(CScore, CDialogEx)
+	ON_WM_ACTIVATE()
 END_MESSAGE_MAP()
 
 
 // Gestionnaires de messages de CScore
+
+
+
+void CScore::OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized)
+{
+	CDialogEx::OnActivate(nState, pWndOther, bMinimized);
+	afficherNom();
+	afficherScore();
+	// TODO: ajoutez ici le code de votre gestionnaire de messages
+}

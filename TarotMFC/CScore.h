@@ -1,5 +1,5 @@
 #pragma once
-
+#include "CJoueur.h"
 
 // Boîte de dialogue CScore
 
@@ -8,7 +8,7 @@ class CScore : public CDialogEx
 	DECLARE_DYNAMIC(CScore)
 
 public:
-	CScore(CWnd* pParent = NULL);   // constructeur standard
+	CScore(CJoueur *[],CWnd* pParent = NULL);   // constructeur standard
 	virtual ~CScore();
 
 // Données de boîte de dialogue
@@ -25,10 +25,15 @@ private:
 	CString nomJoueur2;
 	CString nomJoueur3;
 	CString nomJoueur4;
-	CString score1;
-	CString score2;
-	CString score3;
-	CString score4;
+	int score1;
+	int score2;
+	int score3;
+	int score4;
 public:
-	void afficherNom(CJoueur lesJoueurs[]);
+	void afficherNom();
+	void afficherScore();
+private:
+	CJoueur *nomJoueur[4];
+public:
+	afx_msg void OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized);
 };
