@@ -29,4 +29,5 @@ public:
 	CString mJoueur2;
 	CString mJoueur3;
 	CString mJoueur4;
+	afx_msg void OnAcnStartAnimate1();
 };

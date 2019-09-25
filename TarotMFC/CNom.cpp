@@ -41,6 +41,7 @@ void CNom::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CNom, CDialogEx)
 	ON_BN_CLICKED(IDOK, &CNom::OnBnClickedOk)
+	ON_ACN_START(IDC_ANIMATE1, &CNom::OnAcnStartAnimate1)
 END_MESSAGE_MAP()
 
 void CNom::OnBnClickedOk()
@@ -72,4 +73,9 @@ void CNom::OnBnClickedOk()
 	//CScore Score();
 	dlg.DoModal();
 	CDialogEx::OnOK();
+}
+
+void CNom::OnAcnStartAnimate1()
+{
+	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
 }
