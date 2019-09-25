@@ -6,6 +6,7 @@
 #include "CScore.h"
 #include "afxdialogex.h"
 #include "CPartie.h"
+#include "CNom.h"
 
 
 

@@ -1,20 +1,29 @@
-// CPoints.cpp : fichier d'implémentation
+// CPoints.cppÂ : fichier d'implÃ©mentation
 //
-
 #include "stdafx.h"
+//#include "pch.h"
 #include "TarotMFC.h"
 #include "CPoints.h"
 #include "afxdialogex.h"
+#include "CNom.h"
+#include "CScore.h"
+#include "CDonne.h"
 
 
-// Boîte de dialogue CPoints
+// boÃ®te de dialogue de CPoints
 
 IMPLEMENT_DYNAMIC(CPoints, CDialogEx)
 
-CPoints::CPoints(CWnd* pParent /*=NULL*/)
+CPoints::CPoints(CPartie * laP, CJoueur * lesJoueurs[], CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_TAROTMFC_POINTS, pParent)
+	, bouts_preneur(0)
+	, pts_a_faire(0)
+	, pts_preneur(0)
+	, pts_donne(0)
 {
-
+	laPartie = laP;
+	for (int i = 0; i < 4; i++)
+		this->lesJoueurs[i] = lesJoueurs[i];
 }
 
 CPoints::~CPoints()
@@ -24,71 +33,59 @@ CPoints::~CPoints()
 void CPoints::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_CBIndex(pDX, IDC_COMBO1, bouts_preneur);
+	DDV_MinMaxInt(pDX, bouts_preneur, 0, 3);
+	DDX_Text(pDX, IDC_EDIT1, pts_a_faire);
+	DDX_Text(pDX, IDC_EDIT2, pts_preneur);
+	DDV_MinMaxInt(pDX, pts_preneur, 0, INT_MAX);
+	DDX_Text(pDX, IDC_EDIT3, pts_donne);
 }
 
 
 BEGIN_MESSAGE_MAP(CPoints, CDialogEx)
-	ON_CBN_SELCHANGE(IDC_COMBO2, &CPoints::OnCbnSelchangeCombo2)
-	ON_EN_CHANGE(IDC_EDIT2, &CPoints::OnEnChangeEdit2)
-	ON_EN_CHANGE(IDC_EDIT1, &CPoints::OnEnChangeEdit1)
-	ON_EN_CHANGE(IDC_EDIT3, &CPoints::OnEnChangeEdit3)
+	ON_CBN_SELCHANGE(IDC_COMBO1, &CPoints::BoutEntre)
+	ON_EN_CHANGE(IDC_EDIT2, &CPoints::PointsChange)
 	ON_BN_CLICKED(IDOK, &CPoints::OnBnClickedOk)
-	ON_BN_CLICKED(IDCANCEL, &CPoints::OnBnClickedCancel)
 END_MESSAGE_MAP()
 
 
-// Gestionnaires de messages de CPoints
+// gestionnaires de messages de CPoints
 
 
-void CPoints::OnCbnSelchangeCombo2()
+void CPoints::BoutEntre()
 {
-	
-	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+	UpdateData(true);
+	switch (bouts_preneur)
+	{
+	case 0:
+		pts_a_faire = 56;
+		break;
+	case 1:
+		pts_a_faire = 51;
+		break;
+	case 2:
+		pts_a_faire = 41;
+		break;
+	case 3:
+		pts_a_faire = 36;
+		break;
+	}
+	UpdateData(false);
 }
 
 
-void CPoints::OnEnChangeEdit2()
+void CPoints::PointsChange()
 {
-	// TODO:  S'il s'agit d'un contrôle RICHEDIT, le contrôle ne
-	// envoyez cette notification sauf si vous substituez CDialogEx::OnInitDialog()
-	// fonction et appelle CRichEditCtrl().SetEventMask()
-	// avec l'indicateur ENM_CHANGE ajouté au masque grâce à l'opérateur OR.
-
-	// TODO:  Ajoutez ici le code de votre gestionnaire de notification de contrôle
-}
-
-
-void CPoints::OnEnChangeEdit1()
-{
-	// TODO:  S'il s'agit d'un contrôle RICHEDIT, le contrôle ne
-	// envoyez cette notification sauf si vous substituez CDialogEx::OnInitDialog()
-	// fonction et appelle CRichEditCtrl().SetEventMask()
-	// avec l'indicateur ENM_CHANGE ajouté au masque grâce à l'opérateur OR.
-
-	// TODO:  Ajoutez ici le code de votre gestionnaire de notification de contrôle
-}
-
-
-void CPoints::OnEnChangeEdit3()
-{
-	// TODO:  S'il s'agit d'un contrôle RICHEDIT, le contrôle ne
-	// envoyez cette notification sauf si vous substituez CDialogEx::OnInitDialog()
-	// fonction et appelle CRichEditCtrl().SetEventMask()
-	// avec l'indicateur ENM_CHANGE ajouté au masque grâce à l'opérateur OR.
-
-	// TODO:  Ajoutez ici le code de votre gestionnaire de notification de contrôle
+	UpdateData(true);
+	pts_donne = laPartie->DoMajScore(bouts_preneur, pts_preneur);
+	UpdateData(false);
 }
 
 
 void CPoints::OnBnClickedOk()
 {
-	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+	CScore dlg(lesJoueurs);
+	PostMessage(WM_KEYDOWN, VK_ACCEPT, 0);
+	dlg.DoModal();
 	CDialogEx::OnOK();
-}
-
-
-void CPoints::OnBnClickedCancel()
-{
-	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
-	CDialogEx::OnCancel();
 }

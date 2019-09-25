@@ -39,7 +39,7 @@ CDonne::~CDonne()
 }
 
 //à tester
-void CDonne::CompterPoints(int bouts, int pts, poignee pgn, camp cmp)
+int CDonne::CompterPoints(int bouts, int pts)
 {
 	int ptf = 0;
 	int bonus_pgn = 0;
@@ -78,7 +78,7 @@ void CDonne::CompterPoints(int bouts, int pts, poignee pgn, camp cmp)
 		objectif = 36;
 		break;
 	}
-	switch (pgn)
+	switch (typePoignee)
 	{
 	case simple:
 		bonus_pgn = 10;
@@ -134,6 +134,7 @@ void CDonne::CompterPoints(int bouts, int pts, poignee pgn, camp cmp)
 	{
 		les_defenseurs[i]->MajScore(score_defenseurs);
 	}
+	return(score_preneur);
 }
 
 //ok

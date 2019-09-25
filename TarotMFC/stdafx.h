@@ -32,6 +32,7 @@
 #endif // _AFX_NO_AFXCMN_SUPPORT
 
 #include <afxcontrolbars.h>     // prise en charge des MFC pour les rubans et les barres de contrôles
+#include <afxcontrolbars.h>
 
 
 

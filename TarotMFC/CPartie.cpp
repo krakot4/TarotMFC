@@ -6,19 +6,19 @@
 //#define TESTU_SETCHELEM
 //#define TESTU_SETCONTRAT
 
-CPartie::CPartie(CJoueur *joueurs[])
+CPartie::CPartie(CJoueur* joueurs[])
 {
 	nDonne = 0;
 	for (int i = 0; i <= 3; i++)
 	{
 		this->lesJoueurs[i] = joueurs[i];
 	}
-	lesDonnes = new CDonne*[100];
+	lesDonnes = new CDonne * [100];
 }
 
 CPartie::~CPartie()
 {
-	delete *lesDonnes;
+	delete* lesDonnes;
 }
 
 //ok
@@ -28,8 +28,9 @@ void CPartie::SetPetitAuBout(camp petit)
 }
 
 //ok
-void CPartie::CreerUneDonne(CJoueur * leDonneur)
+void CPartie::CreerUneDonne()
 {
+	SetDonneur();
 	lesDonnes[nDonne] = new CDonne(leDonneur);
 	nDonne++;
 }
@@ -47,15 +48,33 @@ void CPartie::SetChelem(chelem t)
 }
 
 //ok
-void CPartie::SetContrat(CJoueur * lePreneur, contrat t, CJoueur * lesD[])
+void CPartie::SetContrat(CJoueur* lePreneur, contrat t, CJoueur* lesD[])
 {
 	lesDonnes[nDonne - 1]->SetContratD(lePreneur, t, lesD);
+}
+
+void CPartie::SetNbBouts(int nb_bouts)
+{
+	bouts = nb_bouts;
+}
+
+void CPartie::SetDonneur()
+{
+	int n;
+	n = (nDonne % 4);
+	leDonneur = lesJoueurs[n];
+}
+
+int CPartie::DoMajScore(int nb_bouts, int points)
+{
+	pts_preneur = lesDonnes[nDonne - 1]->CompterPoints(nb_bouts, points);
+	return(pts_preneur);
 }
 
 #ifdef TESTU_SETPETITBOUT
 void main()
 {
-	CJoueur *les_joueurs[4];
+	CJoueur* les_joueurs[4];
 	for (int i = 0; i <= 2; i++)
 	{
 		les_joueurs[i] = new CJoueur("joueur" + i, 0);
@@ -71,7 +90,7 @@ void main()
 #ifdef TESTU_CREERUNEDONNE
 void main()
 {
-	CJoueur *les_joueurs[4];
+	CJoueur* les_joueurs[4];
 	CJoueur le_donneur("donneur", 0);
 	for (int i = 0; i <= 3; i++)
 	{
@@ -89,7 +108,7 @@ void main()
 #ifdef TESTU_SETPOIGNEE
 void main()
 {
-	CJoueur *les_joueurs[4];
+	CJoueur* les_joueurs[4];
 	for (int i = 0; i <= 3; i++)
 	{
 		les_joueurs[i] = new CJoueur("joueur" + i, 0);
@@ -114,7 +133,7 @@ void main()
 #ifdef TESTU_SETCHELEM
 void main()
 {
-	CJoueur *les_joueurs[4];
+	CJoueur* les_joueurs[4];
 	for (int i = 0; i <= 3; i++)
 	{
 		les_joueurs[i] = new CJoueur("joueur" + i, 0);
@@ -131,7 +150,7 @@ void main()
 #ifdef TESTU_SETCONTRAT
 void main()
 {
-	CJoueur *les_joueurs[4];
+	CJoueur* les_joueurs[4];
 	for (int i = 0; i <= 3; i++)
 	{
 		les_joueurs[i] = new CJoueur("joueur" + i, 0);

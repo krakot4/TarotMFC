@@ -5,8 +5,12 @@
 #include "stdafx.h"
 #include "TarotMFC.h"
 #include "TarotMFCDlg.h"
+#include "CAnnonce.h"
+#include "CDiagDonne.h"
+#include "CDiagNewDonne.h"
+#include "CNom.h"
+#include "CPoints.h"
 #include "CScore.h"
-#include "CJoueur.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -68,18 +72,12 @@ BOOL CTarotMFCApp::InitInstance()
 	// de votre exécutable final, vous devez supprimer ci-dessous
 	// les routines d'initialisation spécifiques dont vous n'avez pas besoin.
 	// Changez la clé de Registre sous laquelle nos paramètres sont enregistrés
-	// TODO: modifiez cette chaîne avec des informations appropriées,
-	// telles que le nom de votre société ou organisation
-	SetRegistryKey(_T("Applications locales générées par AppWizard"));
+	SetRegistryKey(_T("TarotWizard"));
 
-
-
-
-
-	CScore dlg(t);
+	CTarotMFCDlg dlg;
 	m_pMainWnd = &dlg;
+
 	INT_PTR nResponse = dlg.DoModal();
-	m_pMainWnd->ShowWindow(SW_SHOW);
 	if (nResponse == IDOK)
 	{
 		// TODO: placez ici le code définissant le comportement lorsque la boîte de dialogue est

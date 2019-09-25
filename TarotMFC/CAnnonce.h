@@ -1,4 +1,6 @@
 #pragma once
+#include "CDonne.h"
+#include "CPartie.h"
 
 
 // Boîte de dialogue CAnnonce
@@ -8,7 +10,7 @@ class CAnnonce : public CDialogEx
 	DECLARE_DYNAMIC(CAnnonce)
 
 public:
-	CAnnonce(CWnd* pParent = NULL);   // constructeur standard
+	CAnnonce(CPartie * laP,CJoueur *lesJoueurs[],CWnd* pParent = NULL);   // constructeur standard
 	virtual ~CAnnonce();
 
 // Données de boîte de dialogue
@@ -18,11 +20,18 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // Prise en charge de DDX/DDV
-
+	CPartie* laPartie;
+	CJoueur* lesJoueurs[4];
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnCbnSelchangeCombo1();
-	afx_msg void OnCbnSelchangeCombo2();
+	afx_msg void PoigneeChange();
+	afx_msg void CampChange();
 	afx_msg void OnBnClickedOk();
-	afx_msg void OnBnClickedCancel();
+	int int_pgn;
+	int int_cmp;
+	poignee pgn;
+	camp cmp_bout;
+	camp cmp_pgn;
+	afx_msg void CampPoigneeChange();
+	int int_camp_pgn;
 };

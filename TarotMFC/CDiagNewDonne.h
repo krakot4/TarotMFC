@@ -1,4 +1,5 @@
 #pragma once
+#include "CPartie.h"
 
 
 // Boîte de dialogue CDiagNewDonne
@@ -6,9 +7,10 @@
 class CDiagNewDonne : public CDialogEx
 {
 	DECLARE_DYNAMIC(CDiagNewDonne)
+private:
 
 public:
-	CDiagNewDonne(CWnd* pParent = NULL);   // constructeur standard
+	CDiagNewDonne(CPartie *LaPartie,CJoueur*lesJoueurs[], CWnd* pParent = NULL);   // constructeur standard
 	virtual ~CDiagNewDonne();
 
 // Données de boîte de dialogue
@@ -18,6 +20,8 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // Prise en charge de DDX/DDV
+	CPartie* laPartie;
+	CJoueur* lesJoueurs[];
 
 	DECLARE_MESSAGE_MAP()
 public:
