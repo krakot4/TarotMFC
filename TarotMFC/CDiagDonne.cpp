@@ -61,6 +61,7 @@ void CDiagDonne::JPriseChange()
 	case 0:
 		nom_joueur = "Personne";
 		GetDlgItem(IDC_BUTTON1)->ShowWindow(SW_SHOW);
+		//nik
 		break;
 	case 1:
 		nom_joueur = "Joueur 1";		
