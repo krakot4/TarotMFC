@@ -10,11 +10,13 @@ class CJoueur
 {
 private:
 	string nom;
-	int score;
+	
 public:
 	CJoueur(string nom, int score);
 	string LireNom();
 	int LireScore();
 	int MajScore(int s);
+	int score;
+
 	//string ajout_nom(string nom_joueur);
 };

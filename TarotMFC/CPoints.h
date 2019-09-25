@@ -1,30 +1,34 @@
 #pragma once
+#include "stdafx.h"
+#include "CDonne.h"
+#include "CPartie.h"
 
 
-// Boîte de dialogue CPoints
+// boÃ®te de dialogue de CPoints
 
 class CPoints : public CDialogEx
 {
 	DECLARE_DYNAMIC(CPoints)
 
 public:
-	CPoints(CWnd* pParent = NULL);   // constructeur standard
+	CPoints(CPartie * laPartie,CWnd* pParent = nullptr);   // constructeur standard
 	virtual ~CPoints();
 
-// Données de boîte de dialogue
+// DonnÃ©es de boÃ®te de dialogue
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_TAROTMFC_POINTS };
 #endif
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // Prise en charge de DDX/DDV
-
+	CPartie* laPartie;
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnCbnSelchangeCombo2();
-	afx_msg void OnEnChangeEdit2();
-	afx_msg void OnEnChangeEdit1();
-	afx_msg void OnEnChangeEdit3();
+	int bouts_preneur;
+	int pts_a_faire;
+	afx_msg void BoutEntre();
+	int pts_preneur;
+	int pts_donne;
+	afx_msg void PointsChange();
 	afx_msg void OnBnClickedOk();
-	afx_msg void OnBnClickedCancel();
 };

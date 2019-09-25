@@ -50,7 +50,7 @@ END_MESSAGE_MAP()
 
 
 CTarotMFCDlg::CTarotMFCDlg(CWnd* pParent /*=NULL*/)
-	: CDialogEx(IDD_TAROTMFC_DIALOG, pParent)
+	: CDialogEx(IDD_TAROTMFC_NOM, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }

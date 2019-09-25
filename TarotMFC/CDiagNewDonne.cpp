@@ -5,16 +5,20 @@
 #include "TarotMFC.h"
 #include "CDiagNewDonne.h"
 #include "afxdialogex.h"
+#include "CDiagDonne.h"
+#include "CDonne.h"
+#include "CPartie.h"
+#include "CNom.h"
 
 
 // Boîte de dialogue CDiagNewDonne
 
 IMPLEMENT_DYNAMIC(CDiagNewDonne, CDialogEx)
 
-CDiagNewDonne::CDiagNewDonne(CWnd* pParent /*=NULL*/)
+CDiagNewDonne::CDiagNewDonne(CPartie *LaP, CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_TAROTMFC_NEWDONNE, pParent)
 {
-
+	laPartie = LaP;
 }
 
 CDiagNewDonne::~CDiagNewDonne()
@@ -39,12 +43,22 @@ END_MESSAGE_MAP()
 void CDiagNewDonne::OnBnClickedOk()
 {
 	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
-	CDialogEx::OnOK();
+	
+	//Ouverture de la page Donne
+	CDiagDonne Donne(laPartie);
+	ShowWindow(SW_HIDE);
+	Donne.DoModal();
+	laPartie->CreerUneDonne();
+	ShowWindow(SW_SHOW);
+
 }
 
 
 void CDiagNewDonne::OnBnClickedCancel()
 {
 	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+	//Sauvegarde de la partie
+
+	//Fermeture de la fenêtre
 	CDialogEx::OnCancel();
 }
