@@ -72,17 +72,14 @@ BOOL CTarotMFCApp::InitInstance()
 	// telles que le nom de votre société ou organisation
 	SetRegistryKey(_T("Applications locales générées par AppWizard"));
 
-	CJoueur *t[4];
-	t[0] = new CJoueur("tony", 60);
-	t[1] = new CJoueur("theo", 70);
-	t[2] = new CJoueur("leo", 120);
-	t[3] = new CJoueur("vivien", 50);
+
 
 
 
 	CScore dlg(t);
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
+	m_pMainWnd->ShowWindow(SW_SHOW);
 	if (nResponse == IDOK)
 	{
 		// TODO: placez ici le code définissant le comportement lorsque la boîte de dialogue est

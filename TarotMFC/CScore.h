@@ -1,5 +1,6 @@
 #pragma once
 #include "CJoueur.h"
+#define WM_MYMESSAGE (WM_USER + 100)
 
 // Boîte de dialogue CScore
 
@@ -35,5 +36,6 @@ public:
 private:
 	CJoueur *nomJoueur[4];
 public:
-	afx_msg void OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized);
+	afx_msg LRESULT OnMyMessage(WPARAM wParam, LPARAM lParam);
+	
 };

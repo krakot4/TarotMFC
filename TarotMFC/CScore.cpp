@@ -68,20 +68,15 @@ void CScore::afficherScore()
 	UpdateData(false);
 }
 
+LRESULT CScore::OnMyMessage(WPARAM wParam, LPARAM lParam)
+{
+	afficherNom();
+	afficherScore();
+	return LRESULT();
+}
 
 BEGIN_MESSAGE_MAP(CScore, CDialogEx)
-	ON_WM_ACTIVATE()
+	ON_MESSAGE(WM_MYMESSAGE, OnMyMessage)
 END_MESSAGE_MAP()
 
 
-// Gestionnaires de messages de CScore
-
-
-
-void CScore::OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized)
-{
-	CDialogEx::OnActivate(nState, pWndOther, bMinimized);
-	afficherNom();
-	afficherScore();
-	// TODO: ajoutez ici le code de votre gestionnaire de messages
-}
