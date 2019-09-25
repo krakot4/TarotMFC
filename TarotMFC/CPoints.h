@@ -27,7 +27,8 @@ public:
 	afx_msg void OnEnChangeEdit3();
 	afx_msg void OnBnClickedOk();
 	afx_msg void OnBnClickedCancel();
-	void SetNbBouts(int nb_bouts);
-public:
-	int bouts;
+	int nb_bouts;
+	int points_a_faire;
+	afx_msg void CloseupCombo2();
+	afx_msg void OnBnClickedButton1();
 };
