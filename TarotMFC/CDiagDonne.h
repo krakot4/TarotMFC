@@ -21,6 +21,7 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // Prise en charge de DDX/DDV
 	CPartie* laPartie;
 	CJoueur* lesJoueurs[4];
+	CJoueur* lesD[3];
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void JPriseChange();
@@ -30,5 +31,6 @@ public:
 	int int_prise;
 	contrat typ_ctr;
 	CString nom_joueur;
+	void SetDefenseur(int int_jprise,CJoueur lesJoueurs[]);
 	afx_msg void Redistribuer();
 };

@@ -12,9 +12,11 @@
 
 IMPLEMENT_DYNAMIC(CScore, CDialogEx)
 
-CScore::CScore(CWnd* pParent /*=NULL*/)
+CScore::CScore(CJoueur * lesJoueurs[], CWnd* pParent)
 	: CDialogEx(IDD_TAROTMFC_SCORES, pParent)
 {
+	for (int i = 0; i < 4; i++)
+		this->lesJoueurs[i] = lesJoueurs[i];
 	//problème de construction de la partie --> passage en argument ou création dans CNom ?
 	//CNom dlg;
 	//dlg.DoModal();

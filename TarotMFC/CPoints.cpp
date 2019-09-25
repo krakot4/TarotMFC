@@ -7,13 +7,14 @@
 #include "afxdialogex.h"
 #include "CNom.h"
 #include "CScore.h"
+#include "CDonne.h"
 
 
 // boîte de dialogue de CPoints
 
 IMPLEMENT_DYNAMIC(CPoints, CDialogEx)
 
-CPoints::CPoints(CPartie * laP,CJoueur * lesJoueurs[], CWnd* pParent /*=nullptr*/)
+CPoints::CPoints(CPartie * laP, CJoueur * lesJoueurs[], CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_TAROTMFC_POINTS, pParent)
 	, bouts_preneur(0)
 	, pts_a_faire(0)
@@ -83,20 +84,8 @@ void CPoints::PointsChange()
 
 void CPoints::OnBnClickedOk()
 {
-	CScore dlg;
+	CScore dlg(lesJoueurs);
 	PostMessage(WM_KEYDOWN, VK_ACCEPT, 0);
 	dlg.DoModal();
 	CDialogEx::OnOK();
-}
-
-
-void CPoints::OnBnClickedCancel()
-{
-	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
-	CDialogEx::OnCancel();
-}
-
-void CPoints::SetNbBouts(int nb_bouts)
-{
-	bouts = nb_bouts;
 }

@@ -50,10 +50,11 @@ void CDiagNewDonne::OnBnClickedOk()
 	
 	//Ouverture de la page Donne
 	CDiagDonne Donne(laPartie,lesJoueurs);
-	ShowWindow(SW_HIDE);
+	PostMessage(WM_KEYDOWN, VK_ACCEPT, 0);
+	//ShowWindow(SW_HIDE);
 	Donne.DoModal();
 	laPartie->CreerUneDonne();
-	ShowWindow(SW_SHOW);
+	//ShowWindow(SW_SHOW);
 
 }
 

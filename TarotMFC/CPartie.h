@@ -21,7 +21,7 @@ public:
 	void CreerUneDonne();
 	void SetPoignee(camp p, poignee type);
 	void SetChelem(chelem t);
-	void SetContrat(CJoueur *lesJoueurs, contrat t, CJoueur *lesD[]);
+	void SetContrat(CJoueur *lePreneur, contrat t, CJoueur *lesD[]);
 	void SetNbBouts(int nb_bouts);
 	void SetDonneur();
 	int DoMajScore(int nb_bouts, int points);

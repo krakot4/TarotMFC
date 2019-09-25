@@ -1,5 +1,5 @@
 #pragma once
-
+#include "CJoueur.h"
 
 // Boîte de dialogue CScore
 
@@ -18,7 +18,7 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // Prise en charge de DDX/DDV
-
+	CJoueur *lesJoueurs[4];
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnEnChangeEdit1();

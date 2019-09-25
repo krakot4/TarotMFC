@@ -78,17 +78,15 @@ void CAnnonce::CampChange()
 	{
 	case 0:
 		cmp_bout = personne;
-		laPartie->SetPetitAuBout(cmp_bout);
 		break;
 	case 1:
 		cmp_bout = preneur;
-		laPartie->SetPetitAuBout(cmp_bout);
 		break;
 	case 2:
 		cmp_bout = defenseur;
-		laPartie->SetPetitAuBout(cmp_bout);
 		break;
 	}
+	laPartie->SetPetitAuBout(cmp_bout);
 }
 
 
@@ -108,15 +106,13 @@ void CAnnonce::CampPoigneeChange()
 	{
 	case 0:
 		cmp_pgn = personne;
-		laPartie->SetPoignee(cmp_pgn, pgn);
 		break;
 	case 1:
 		cmp_pgn = preneur;
-		laPartie->SetPoignee(cmp_pgn, pgn);
 		break;
 	case 2:
 		cmp_pgn = defenseur;
-		laPartie->SetPoignee(cmp_pgn, pgn);
 		break;
 	}
+	laPartie->SetPoignee(cmp_pgn, pgn);
 }

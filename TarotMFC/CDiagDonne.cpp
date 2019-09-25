@@ -7,6 +7,7 @@
 #include "afxdialogex.h"
 #include "CAnnonce.h"
 #include "CDiagNewDonne.h"
+#include "CDonne.h"
 
 
 // Boîte de dialogue CDonne
@@ -62,7 +63,7 @@ void CDiagDonne::JPriseChange()
 		GetDlgItem(IDC_BUTTON1)->ShowWindow(SW_SHOW);
 		break;
 	case 1:
-		nom_joueur = "Joueur 1";
+		nom_joueur = "Joueur 1";		
 		break;
 	case 2:
 		nom_joueur = "Joueur 2";
@@ -80,6 +81,7 @@ void CDiagDonne::JPriseChange()
 
 void CDiagDonne::PriseChange()
 {
+
 	UpdateData(true);
 	switch (int_prise)
 	{
@@ -96,6 +98,7 @@ void CDiagDonne::PriseChange()
 		typ_ctr = garde_contre;
 		break;
 	}
+	laPartie->SetContrat(lesJoueurs[int_jprise - 1], typ_ctr, lesD);
 }
 
 void CDiagDonne::OnBnClickedOk()
@@ -106,6 +109,33 @@ void CDiagDonne::OnBnClickedOk()
 	CDialogEx::OnOK();
 }
 
+
+void CDiagDonne::SetDefenseur(int int_jprise, CJoueur lesJoueurs[])
+{
+	switch (int_jprise)
+	{
+	case 1:
+		lesD[0] = &lesJoueurs[1];
+		lesD[1] = &lesJoueurs[2];
+		lesD[2] = &lesJoueurs[3];
+		break;
+	case 2:
+		lesD[0] = &lesJoueurs[0];
+		lesD[1] = &lesJoueurs[2];
+		lesD[2] = &lesJoueurs[3];
+		break;
+	case 3:
+		lesD[0] = &lesJoueurs[0];
+		lesD[1] = &lesJoueurs[1];
+		lesD[2] = &lesJoueurs[3];
+		break;
+	case 4:
+		lesD[0] = &lesJoueurs[0];
+		lesD[1] = &lesJoueurs[1];
+		lesD[2] = &lesJoueurs[2];
+		break;
+	}
+}
 
 void CDiagDonne::Redistribuer()
 {
